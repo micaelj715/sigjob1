@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-CV">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento Opcional | SigJob</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif
+    }
+
+    body {
+      background: #f5f7fa;
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .payment-box {
+      width: 100%;
+      max-width: 620px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      padding: 36px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, .08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .logo-icon {
+      width: 46px;
+      height: 46px;
+      background: #1d4ed8;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    .logo h1 {
+      font-size: 23px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 8px 12px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #4b5563;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .amount {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #fff;
+      padding: 26px;
+      margin: 28px 0;
+    }
+
+    .amount span {
+      font-size: 14px;
+      opacity: .9;
+    }
+
+    .amount strong {
+      display: block;
+      font-size: 38px;
+      margin-top: 8px;
+    }
+
+    .notice {
+      border-left: 4px solid #f59e0b;
+      background: #fffbeb;
+      padding: 16px;
+      margin: 22px 0;
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    .method {
+      border: 1px solid #e5e7eb;
+      padding: 18px;
+      margin-bottom: 14px;
+      background: #f9fafb;
+    }
+
+    .method strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    button,
+    a {
+      text-decoration: none;
+      border: none;
+      padding: 15px 22px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 15px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .primary {
+      background: #16a34a;
+      color: #fff;
+    }
+
+    .secondary {
+      background: #fff;
+      color: #111827;
+      border: 1px solid #cbd5e1;
+    }
+
+    .small {
+      margin-top: 22px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    @media(max-width:600px) {
+      .payment-box {
+        padding: 26px
+      }
+
+      h2 {
+        font-size: 25px
+      }
+
+      .amount strong {
+        font-size: 31px
+      }
+
+      .actions {
+        flex-direction: column
+      }
+
+      button,
+      a {
+        width: 100%
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="payment-box">
+    <div class="logo">
+      <div class="logo-icon">SJ</div>
+      <div>
+        <h1>SigJob</h1>
+        <p style="margin:0;font-size:13px;">Serviço opcional de análise</p>
+      </div>
+    </div>
+
+    <span class="tag">Pagamento opcional</span>
+
+    <h2>Análise prioritária do perfil</h2>
+
+    <p>
+      A sua candidatura já foi recebida. Este pagamento é opcional e serve apenas
+      para solicitar análise prioritária do perfil e orientações iniciais.
+    </p>
+
+    <div class="amount">
+      <span>Taxa única opcional</span>
+      <strong>500 CVE</strong>
+    </div>
+
+    <div class="notice">
+      Este serviço não garante aprovação no trabalho. A candidatura pode continuar
+      normalmente mesmo sem pagamento.
+    </div>
+
+    <h3>Métodos de pagamento</h3>
+
+    <div class="method">
+      <strong>Pagamento por WhatsApp</strong>
+      Solicite os dados de pagamento diretamente com a equipa.
+    </div>
+
+    <div class="method">
+      <strong>Transferência / Mobile Money</strong>
+      Os dados serão enviados após confirmação pelo WhatsApp.
+    </div>
+
+    <div class="actions">
+      <button class="primary" onclick="abrirWhatsAppPagamento()">
+        Solicitar dados de pagamento
+      </button>
+
+      <a class="secondary" href="index.html">
+        Voltar ao site
+      </a>
+    </div>
+
+    <p class="small">
+      SigJob © 2026 — Serviço opcional de análise de perfil.
+    </p>
+  </div>
+
+  <script>
+    function abrirWhatsAppPagamento() {
+      const telefoneEmpresa = "2389999999";
+
+      const mensagem =
+        "Olá, quero solicitar os dados de pagamento para a análise prioritária do perfil.%0A%0A" +
+        "Serviço: Análise prioritária%0A" +
+        "Taxa opcional: 500 CVE";
+
+      window.open("https://wa.me/" + telefoneEmpresa + "?text=" + mensagem, "_blank");
+    }
+  </script>
+
+</body>
+
+</html>

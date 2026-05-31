@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-CV">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SigJob | Trabalho Remoto</title>
+
+    <meta name="description"
+        content="Candidate-se a trabalho remoto com horário flexível, contrato renovável e tarefas digitais online." />
+    <meta name="keywords"
+        content="trabalho remoto, digitação online, entrada de dados, trabalho online, candidatura online, SigJob" />
+    <meta name="author" content="SigJob" />
+    <meta name="robots" content="index, follow" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .brand h1 {
+            font-size: 22px;
+            color: #111827;
+            font-weight: 800;
+        }
+
+        .brand span {
+            display: block;
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 3px;
+        }
+
+        .header-tag {
+            font-size: 14px;
+            color: #1d4ed8;
+            font-weight: 700;
+            background: #eff6ff;
+            padding: 9px 14px;
+            border-radius: 999px;
+        }
+
+        main {
+            max-width: 980px;
+            margin: 0 auto;
+            background: #ffffff;
+            min-height: calc(100vh - 85px);
+            padding: 50px 8%;
+        }
+
+        .progress {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            margin-bottom: 35px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 20%;
+            background: #1d4ed8;
+            transition: width 0.4s ease;
+        }
+
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeUp 0.45s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            color: #1d4ed8;
+            background: #eff6ff;
+            padding: 8px 13px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        h2 {
+            font-size: 32px;
+            line-height: 1.15;
+            color: #111827;
+            margin-bottom: 18px;
+            font-weight: 800;
+            max-width: 720px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 28px 0 14px;
+            color: #111827;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4b5563;
+            margin-bottom: 18px;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: #64748b;
+            max-width: 680px;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .salary-box {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #ffffff;
+            padding: 28px;
+            margin: 32px 0;
+        }
+
+        .salary-box span {
+            display: block;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .salary-box strong {
+            font-size: 34px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .salary-box p {
+            color: #e0ecff;
+            margin-bottom: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin: 25px 0;
+        }
+
+        .info-item {
+            border: 1px solid #e5e7eb;
+            padding: 20px;
+            background: #ffffff;
+            transition: 0.25s;
+        }
+
+        .info-item:hover {
+            border-color: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        .info-item strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #111827;
+            font-size: 16px;
+        }
+
+        .info-item p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .notice {
+            border-left: 4px solid #1d4ed8;
+            background: #f8fafc;
+            padding: 18px;
+            margin: 28px 0;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .warning {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .contract-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 24px;
+            margin: 28px 0;
+        }
+
+        .requirements {
+            margin: 18px 0 25px;
+            padding-left: 20px;
+            color: #374151;
+        }
+
+        .requirements li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .question {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 24px 0;
+        }
+
+        .question h3 {
+            font-size: 17px;
+            margin: 0 0 14px;
+            font-weight: 700;
+        }
+
+        .options {
+            display: flex;
+            gap: 12px;
+            max-width: 340px;
+        }
+
+        .option {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 700;
+            color: #374151;
+            transition: all 0.25s ease;
+        }
+
+        .option:hover {
+            border-color: #1d4ed8;
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+            background: #1d4ed8;
+            color: #ffffff;
+            border-color: #1d4ed8;
+            animation: pulseSelect 0.35s ease;
+        }
+
+        @keyframes pulseSelect {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .option.selected::after {
+            content: " ✓";
+            font-weight: 900;
+        }
+
+        .hint {
+            display: none;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #16a34a;
+            font-weight: 700;
+        }
+
+        .hint.show {
+            display: block;
+            animation: fadeUp 0.3s ease forwards;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        button,
+        .btn-link {
+            border: none;
+            background: #1d4ed8;
+            color: #ffffff;
+            padding: 15px 26px;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            min-width: 180px;
+            transition: 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        button:hover,
+        .btn-link:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #111827;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background: #f3f4f6;
+        }
+
+        .btn-payment {
+            background: #0f172a;
+        }
+
+        .btn-payment:hover {
+            background: #020617;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            font-size: 15px;
+            background: #ffffff;
+            color: #111827;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #1d4ed8;
+            box-shadow: 0 0 0 3px #dbeafe;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 1000px #f8fafc inset !important;
+            -webkit-text-fill-color: #111827 !important;
+            border-color: #1d4ed8 !important;
+        }
+
+        .success {
+            border-top: 4px solid #16a34a;
+            background: #f8fafc;
+            padding: 32px;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        .success h2 {
+            color: #166534;
+        }
+
+        .whatsapp {
+            background: #16a34a;
+        }
+
+        .whatsapp:hover {
+            background: #15803d;
+        }
+
+        footer {
+            margin-top: 55px;
+            padding-top: 22px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 16px 5%;
+            }
+
+            .header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .header-tag {
+                display: none;
+            }
+
+            main {
+                padding: 35px 6%;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .salary-box strong {
+                font-size: 28px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            button,
+            .btn-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="brand">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="SigJob Logo">
+                    <rect width="64" height="64" fill="#1D4ED8" />
+                    <path d="M18 18H34C42 18 48 24 48 32C48 40 42 46 34 46H18V18Z" fill="white" />
+                    <path d="M27 26H34C37.5 26 40 28.5 40 32C40 35.5 37.5 38 34 38H27V26Z" fill="#1D4ED8" />
+                    <path d="M13 50H51" stroke="white" stroke-width="4" />
+                </svg>
+
+                <div>
+                    <h1>SigJob</h1>
+                    <span>Candidatura para trabalho remoto</span>
+                </div>
+            </div>
+
+            <div class="header-tag">Contrato renovável • Horário flexível</div>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <section class="page active" id="page1">
+            <span class="hero-label">Oportunidade Remota</span>
+
+            <h2>Programa de Trabalho Digital Remoto</h2>
+
+            <p class="hero-subtitle">
+                Atividades digitais, organização de informações e tarefas online com horário flexível
+                e possibilidade de renovação contratual.
+            </p>
+
+            <div class="salary-box">
+                <span>Ganhos mensais estimados</span>
+                <strong>Até 12.000 dólares / mês</strong>
+                <p>
+                    O valor pode variar conforme a quantidade de tarefas concluídas,
+                    disponibilidade, qualidade do trabalho e aprovação das atividades.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="info-item">
+                    <strong>Tipo de trabalho</strong>
+                    <p>Remoto, com tarefas online de digitação e entrada de dados.</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>Contrato inicial</strong>
+                    <p>Prestação de serviços ou projeto, conforme aprovação da candidatura.</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>Renovação de contrato</strong>
+                    <p>Possibilidade de renovação mensal conforme desempenho e disponibilidade.</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>Pagamento</strong>
+                    <p>Por tarefa, projeto ou período de trabalho, conforme combinado.</p>
+                </div>
+            </div>
+
+            <div class="contract-box">
+                <h3>Contrato e renovação</h3>
+                <p>
+                    O candidato aprovado poderá iniciar com um período de avaliação.
+                    Após esse período, o contrato poderá ser renovado mensalmente,
+                    dependendo da qualidade das tarefas, cumprimento dos prazos e disponibilidade.
+                </p>
+            </div>
+
+            <h3>Benefícios</h3>
+            <ul class="requirements">
+                <li>Trabalho online, sem necessidade de deslocamento.</li>
+                <li>Não exige experiência avançada.</li>
+                <li>Instruções iniciais para execução das tarefas.</li>
+                <li>Possibilidade de continuidade e renovação conforme desempenho.</li>
+                <li>Comunicação simples por WhatsApp ou email.</li>
+            </ul>
+
+            <div class="notice">
+                O processo inicial é feito por meio de um questionário rápido.
+                As informações serão usadas apenas para avaliar a candidatura.
+            </div>
+
+            <div class="actions">
+                <button onclick="nextPage(2)">Iniciar candidatura</button>
+            </div>
+        </section>
+
+        <section class="page" id="page2">
+            <h2>Questionário inicial</h2>
+            <p>Responda às perguntas abaixo para continuar.</p>
+
+            <div class="question">
+                <h3>1. Você tem celular ou computador para realizar as tarefas?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this)">Sim</div>
+                    <div class="option" onclick="selectOption(this)">Não</div>
+                </div>
+                <div class="hint">Resposta registrada.</div>
+            </div>
+
+            <div class="question">
+                <h3>2. Você tem acesso regular à internet?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this)">Sim</div>
+                    <div class="option" onclick="selectOption(this)">Não</div>
+                </div>
+                <div class="hint">Resposta registrada.</div>
+            </div>
+
+            <div class="question">
+                <h3>3. Você consegue digitar informações com atenção?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this)">Sim</div>
+                    <div class="option" onclick="selectOption(this)">Não</div>
+                </div>
+                <div class="hint">Resposta registrada.</div>
+            </div>
+
+            <div class="actions">
+                <button onclick="nextPage(3)">Continuar</button>
+                <button class="btn-secondary" onclick="nextPage(1)">Voltar</button>
+            </div>
+        </section>
+
+        <section class="page" id="page3">
+            <h2>Disponibilidade</h2>
+            <p>Estas perguntas ajudam a entender se o trabalho combina com o seu perfil.</p>
+
+            <div class="question">
+                <h3>4. Você tem disponibilidade para realizar tarefas online?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this)">Sim</div>
+                    <div class="option" onclick="selectOption(this)">Não</div>
+                </div>
+                <div class="hint">Resposta registrada.</div>
+            </div>
+
+            <div class="question">
+                <h3>5. Você aceita receber orientações por WhatsApp ou email?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this)">Sim</div>
+                    <div class="option" onclick="selectOption(this)">Não</div>
+                </div>
+                <div class="hint">Resposta registrada.</div>
+            </div>
+
+            <div class="question">
+                <h3>6. Você aceita um contrato com possibilidade de renovação mensal?</h3>
+                <div class="options">
+                    <div class="option" onclick="selectOption(this)">Sim</div>
+                    <div class="option" onclick="selectOption(this)">Não</div>
+                </div>
+                <div class="hint">Resposta registrada.</div>
+            </div>
+
+            <div class="actions">
+                <button onclick="nextPage(4)">Continuar</button>
+                <button class="btn-secondary" onclick="nextPage(2)">Voltar</button>
+            </div>
+        </section>
+
+        <section class="page" id="page4">
+            <h2>Dados de contacto</h2>
+            <p>Preencha os dados abaixo para finalizar a candidatura.</p>
+
+            <div class="form-group">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" autocomplete="name" placeholder="Digite o seu nome completo" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" autocomplete="email" inputmode="email"
+                    placeholder="seuemail@email.com" />
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">WhatsApp</label>
+                <input type="tel" id="telefone" autocomplete="tel" inputmode="tel" placeholder="+238 ..." />
+            </div>
+
+            <div class="form-group">
+                <label for="disponibilidade">Disponibilidade</label>
+                <select id="disponibilidade">
+                    <option value="">Selecione uma opção</option>
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Noite</option>
+                    <option>Horário flexível</option>
+                </select>
+            </div>
+
+            <div class="actions">
+                <button onclick="finalizar()">Enviar candidatura</button>
+                <button class="btn-secondary" onclick="nextPage(3)">Voltar</button>
+            </div>
+        </section>
+
+        <section class="page" id="page5">
+            <div class="success">
+                <h2>Candidatura recebida</h2>
+
+                <p>
+                    A sua candidatura foi registada com sucesso. A nossa equipa irá analisar
+                    as informações enviadas.
+                </p>
+
+                <div class="notice warning">
+                    <strong>Serviço opcional:</strong><br>
+                    Pode solicitar uma análise prioritária do perfil e suporte inicial para preparação.
+                    Este serviço é opcional e não garante aprovação.
+                </div>
+
+                <div class="salary-box">
+                    <span>Taxa única opcional</span>
+                    <strong>500 CVE</strong>
+                    <p>
+                        Inclui análise prioritária do perfil e orientações iniciais sobre o processo.
+                    </p>
+                </div>
+
+                <div class="actions">
+                    <a href="pagamento.html" class="btn-link btn-payment">Solicitar análise prioritária</a>
+                    <button class="btn-secondary" onclick="abrirWhatsApp()">Continuar sem pagamento</button>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            SigJob © 2026 — Trabalho remoto, contrato renovável e candidatura online.
+        </footer>
+
+    </main>
+
+    <script>
+        const respostas = {};
+
+        function nextPage(pageNumber) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            document.getElementById('page' + pageNumber).classList.add('active');
+
+            const progress = document.getElementById('progressBar');
+            if (progress) {
+                progress.style.width = (pageNumber * 20) + '%';
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function selectOption(element) {
+            const question = element.closest('.question');
+            const questionText = question.querySelector('h3').innerText;
+            const answer = element.innerText.replace('✓', '').trim();
+
+            respostas[questionText] = answer;
+
+            const options = element.parentElement.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            element.classList.add('selected');
+
+            const hint = question.querySelector('.hint');
+            if (hint) {
+                hint.classList.add('show');
+            }
+        }
+
+        function salvarLocal(dados) {
+            const lista = JSON.parse(localStorage.getItem('candidaturas') || '[]');
+            lista.push(dados);
+            localStorage.setItem('candidaturas', JSON.stringify(lista));
+
+            localStorage.setItem('ultimo_nome', dados.nome);
+            localStorage.setItem('ultimo_email', dados.email);
+            localStorage.setItem('ultimo_telefone', dados.telefone);
+        }
+
+        function preencherAutomatico() {
+            const nome = localStorage.getItem('ultimo_nome');
+            const email = localStorage.getItem('ultimo_email');
+            const telefone = localStorage.getItem('ultimo_telefone');
+
+            if (nome) document.getElementById('nome').value = nome;
+            if (email) document.getElementById('email').value = email;
+            if (telefone) document.getElementById('telefone').value = telefone;
+        }
+
+        async function finalizar() {
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const disponibilidade = document.getElementById('disponibilidade').value;
+
+            if (!nome || !email || !telefone || !disponibilidade) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            const dados = {
+                nome,
+                email,
+                telefone,
+                disponibilidade,
+                respostas,
+                origem: window.location.href,
+                data: new Date().toISOString()
+            };
+
+            salvarLocal(dados);
+
+            try {
+                await fetch('/api/candidatura', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dados)
+                });
+            } catch (error) {
+                console.log('Dados guardados localmente. API ainda não configurada.');
+            }
+
+            nextPage(5);
+        }
+
+        function abrirWhatsApp() {
+            const telefoneEmpresa = "2389999999";
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const disponibilidade = document.getElementById('disponibilidade').value;
+
+            const mensagem =
+                `Olá, tenho interesse no trabalho remoto.%0A%0A` +
+                `Nome: ${nome}%0A` +
+                `Email: ${email}%0A` +
+                `WhatsApp: ${telefone}%0A` +
+                `Disponibilidade: ${disponibilidade}%0A%0A` +
+                `Quero continuar sem pagamento opcional.`;
+
+            window.open(`https://wa.me/${telefoneEmpresa}?text=${mensagem}`, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', preencherAutomatico);
+    </script>
+
+</body>
+
+</html>
