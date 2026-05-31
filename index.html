@@ -60,7 +60,7 @@
         .brand h1 {
             font-size: 22px;
             color: #111827;
-            font-weight: 800;
+            font-weight: 600;
         }
 
         .brand span {
@@ -73,7 +73,7 @@
         .header-tag {
             font-size: 14px;
             color: #1d4ed8;
-            font-weight: 700;
+            font-weight: 500;
             background: #eff6ff;
             padding: 9px 14px;
             border-radius: 999px;
@@ -127,16 +127,16 @@
             padding: 8px 13px;
             border-radius: 999px;
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 500;
             margin-bottom: 18px;
         }
 
         h2 {
-            font-size: 32px;
+            font-size: 28px;
             line-height: 1.15;
             color: #111827;
             margin-bottom: 18px;
-            font-weight: 800;
+            font-weight: 600;
             max-width: 720px;
         }
 
@@ -176,7 +176,7 @@
         }
 
         .salary-box strong {
-            font-size: 34px;
+            font-size: 24px;
             display: block;
             margin-bottom: 8px;
         }
@@ -257,7 +257,7 @@
         .question h3 {
             font-size: 17px;
             margin: 0 0 14px;
-            font-weight: 700;
+            font-weight: 500;
         }
 
         .options {
@@ -273,7 +273,7 @@
             background: #ffffff;
             cursor: pointer;
             text-align: center;
-            font-weight: 700;
+            font-weight: 500;
             color: #374151;
             transition: all 0.25s ease;
         }
@@ -315,7 +315,7 @@
             margin-top: 12px;
             font-size: 14px;
             color: #16a34a;
-            font-weight: 700;
+            font-weight: 500;
         }
 
         .hint.show {
@@ -337,7 +337,7 @@
             color: #ffffff;
             padding: 15px 26px;
             font-size: 15px;
-            font-weight: 800;
+            font-weight: 600;
             cursor: pointer;
             min-width: 180px;
             transition: 0.2s;
@@ -379,7 +379,7 @@
         label {
             display: block;
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 500;
             margin-bottom: 8px;
             color: #374151;
         }
@@ -686,35 +686,37 @@
             </div>
         </section>
 
-        <section class="page" id="page5">
-            <div class="success">
-                <h2>Candidatura recebida</h2>
+        
+<section class="page" id="page5">
+    <div class="success" style="border-top:1px solid #e5e7eb;background:#fff;padding:28px;">
+        <h2 style="font-size:24px;font-weight:500;color:#111827;">Candidatura recebida</h2>
 
-                <p>
-                    A sua candidatura foi registada com sucesso. A nossa equipa irá analisar
-                    as informações enviadas.
-                </p>
+        <p>
+            Recebemos as suas informações. Caso deseje, pode concluir a ativação prioritária
+            para análise inicial e encaminhamento mais rápido do processo.
+        </p>
 
-                <div class="notice warning">
-                    <strong>Serviço opcional:</strong><br>
-                    Pode solicitar uma análise prioritária do perfil e suporte inicial para preparação.
-                    Este serviço é opcional e não garante aprovação.
-                </div>
+        <div class="notice warning" style="font-size:14px;border-left:3px solid #d1d5db;background:#fafafa;">
+            Serviço opcional de ativação prioritária. Não garante aprovação nem contratação.
+        </div>
 
-                <div class="salary-box">
-                    <span>Taxa única opcional</span>
-                    <strong>500 CVE</strong>
-                    <p>
-                        Inclui análise prioritária do perfil e orientações iniciais sobre o processo.
-                    </p>
-                </div>
-
-                <div class="actions">
-                    <a href="pagamento.html" class="btn-link btn-payment">Solicitar análise prioritária</a>
-                    <button class="btn-secondary" onclick="abrirWhatsApp()">Continuar sem pagamento</button>
-                </div>
+        <div style="border:1px solid #e5e7eb;padding:20px;background:#fafafa;margin:24px 0;">
+            <div style="font-size:13px;color:#6b7280;margin-bottom:6px;">Ativação prioritária</div>
+            <div style="font-size:22px;color:#111827;margin-bottom:8px;">US$ 0.99</div>
+            <div style="font-size:14px;color:#6b7280;">
+                Pagamento único opcional para continuidade prioritária do processo.
             </div>
-        </section>
+        </div>
+
+        <div class="actions">
+            <a href="https://www.paypal.com/ncp/payment/3R4SS2DQMLZC6" target="_blank" class="btn-link btn-payment" style="font-weight:500;">
+                Continuar para pagamento
+            </a>
+            <button class="btn-secondary" onclick="abrirWhatsApp()">Continuar sem pagamento</button>
+        </div>
+    </div>
+</section>
+
 
         <footer>
             SigJob © 2026 — Trabalho remoto, contrato renovável e candidatura online.
